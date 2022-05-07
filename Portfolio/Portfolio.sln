@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Companies", "Global Companies\Companies.dtproj", "{49C18388-E2F5-42B5-99E7-6136BAA7A40A}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "GooglePlayStore", "GooglePlayStore\GooglePlayStore.dtproj", "{2CDDA5D6-D0DF-4FD4-B59D-E231072D7851}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "EuropeanSoccer", "EuropeanSoccer\EuropeanSoccer.dtproj", "{ED97AFAB-E2B9-42D0-82AF-92D68B2154E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49C18388-E2F5-42B5-99E7-6136BAA7A40A}.Development|Default.ActiveCfg = Development
+		{49C18388-E2F5-42B5-99E7-6136BAA7A40A}.Development|Default.Build.0 = Development
+		{2CDDA5D6-D0DF-4FD4-B59D-E231072D7851}.Development|Default.ActiveCfg = Development
+		{2CDDA5D6-D0DF-4FD4-B59D-E231072D7851}.Development|Default.Build.0 = Development
+		{ED97AFAB-E2B9-42D0-82AF-92D68B2154E3}.Development|Default.ActiveCfg = Development
+		{ED97AFAB-E2B9-42D0-82AF-92D68B2154E3}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59A6642E-6DD9-4C97-B4B3-79B1DE457AE6}
+	EndGlobalSection
+EndGlobal
