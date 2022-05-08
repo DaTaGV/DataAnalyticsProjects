@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
-    <Name>Companies</Name>
-    <LastWriteTime>2022-05-06T18:32:09.7753257Z</LastWriteTime>
+    <Name>GooglePlayStore</Name>
+    <LastWriteTime>2022-05-06T18:34:38.1688286Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Companies.dtsx</Name>
-      <LastWriteTime>2022-05-06T19:59:54.0907279Z</LastWriteTime>
+      <Name>ETL Google.dtsx</Name>
+      <LastWriteTime>2022-05-06T19:59:41.3510867Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

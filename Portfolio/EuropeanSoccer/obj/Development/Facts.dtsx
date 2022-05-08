@@ -9,11 +9,1880 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.180"
   DTS:LocaleID="3082"
-  DTS:ObjectName="Package1"
+  DTS:ObjectName="Facts"
   DTS:PackageType="5"
-  DTS:VersionGUID="{5363DFC8-678D-440E-99DC-286C40EBA164}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{B4240701-C572-4307-96B3-32F0AEC6DCB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
-  <DTS:Executables />
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SoccerCnn]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FC56DE36-D74A-4360-A006-1D085B95C5CA}"
+      DTS:ObjectName="SoccerCnn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=BIABLEDEVELOPER;User ID=sa;Initial Catalog=EuropeanSoccer;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{FC56DE36-D74A-4360-A006-1D085B95C5CA}BIABLEDEVELOPER.EuropeanSoccer.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAc8Be7rWCB0SwwlrHdghP2gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACPHXatNh+xKWc+/hhNWcqSuYiu8+Grbu2P6SOS/V5COQAAAAAOgAAAAAIAACAAAAB/5PJNWG9pYmtm2UYBCqKps1XbBcTgpKnbghWZi72O0yAAAAAJnD8zymjofNMadl7PKVG44iv2qIW8k6EZ2beSTR+WD0AAAAARGcfCnxc9yd+nhBdXUxuCTd+VOMML/JC/RJ7JoYosGx6x11czrR7Sa4DIV6cZnHo2xRl/2DywwTqypNypcbDr</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{012B8E3B-641B-44B0-B00F-30967940C76C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="HomeAway">
+      <DTS:VariableValue
+        DTS:DataType="8">Home</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8436DD20-723B-464B-97BB-311512AC47C7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_I4) LEFT( (DT_WSTR, 6) @[User::StartPeriod], 4 )"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="InitialYear">
+      <DTS:VariableValue
+        DTS:DataType="3">2020</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A14C2D51-1307-4946-9917-9A10981E2B29}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="YEAR(GETDATE())"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastYear">
+      <DTS:VariableValue
+        DTS:DataType="3">2022</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F7B757D-3AC6-468C-9598-216163CCA690}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Month">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D562ACAB-3B8A-46FA-90AF-DA830294EE9C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_WSTR, 6)  (@[User::Year] * 100 +  @[User::Month])"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Period">
+      <DTS:VariableValue
+        DTS:DataType="8">202001</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FFCC57A5-7C9D-4055-A8C1-B7CE959D9F54}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartPeriod">
+      <DTS:VariableValue
+        DTS:DataType="3">202001</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91BAF4F8-10F9-42BA-BDA5-BEBDBE37E6E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Year">
+      <DTS:VariableValue
+        DTS:DataType="3">2020</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Initial Period"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{00e1cc84-a32c-4391-ac9d-661b0ba179da}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Initial Period"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FC56DE36-D74A-4360-A006-1D085B95C5CA}"
+          SQLTask:SqlStatementSource="EXEC spMinPeriod"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="StartPeriod"
+            SQLTask:DtsVariableName="User::StartPeriod" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::StartPeriod"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop - Years"
+      DTS:AssignExpression="@Year=@Year+1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="Contenedor de bucles For"
+      DTS:DTSID="{A2578642-192B-45A5-9320-45D21B7EBB4B}"
+      DTS:EvalExpression="@Year&lt;=@LastYear"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@Year=@InitialYear"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="Loop - Years">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop - Years\Loop - Months"
+          DTS:AssignExpression="@Month=@Month+1"
+          DTS:CreationName="STOCK:FORLOOP"
+          DTS:Description="Contenedor de bucles For"
+          DTS:DTSID="{6D6243B7-7CE1-4377-88A0-86DA9DE8BD9A}"
+          DTS:EvalExpression="@Month&lt;=12"
+          DTS:ExecutableType="STOCK:FORLOOP"
+          DTS:InitExpression="@Month=1"
+          DTS:LocaleID="-1"
+          DTS:MaxConcurrent="1"
+          DTS:ObjectName="Loop - Months">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor"
+              DTS:CreationName="STOCK:FOREACHLOOP"
+              DTS:Description="Contenedor de bucles Foreach"
+              DTS:DTSID="{8AAF6F61-3D06-4FA2-9A50-B80AB872EE48}"
+              DTS:ExecutableType="STOCK:FOREACHLOOP"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Loop - Home Away Indictor">
+              <DTS:ForEachEnumerator
+                DTS:CreationName="Microsoft.ForEachItemEnumerator"
+                DTS:DTSID="{6FB3C7B9-F01C-4A3B-A216-FF2BC2F4EB78}"
+                DTS:ObjectName="{6FB3C7B9-F01C-4A3B-A216-FF2BC2F4EB78}">
+                <DTS:ObjectData>
+                  <FEIEItems>
+                    <FEIEItem>
+                      <FEIEItemValue
+                        Type="8"
+                        Value="Home" />
+                    </FEIEItem>
+                    <FEIEItem>
+                      <FEIEItemValue
+                        Type="8"
+                        Value="Away" />
+                    </FEIEItem>
+                  </FEIEItems>
+                </DTS:ObjectData>
+              </DTS:ForEachEnumerator>
+              <DTS:Variables />
+              <DTS:Executables>
+                <DTS:Executable
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers"
+                  DTS:CreationName="Microsoft.ExecuteSQLTask"
+                  DTS:Description="Tarea Ejecutar SQL"
+                  DTS:DTSID="{0203479D-4341-408B-A6BE-8C38613A780B}"
+                  DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Insert spPlayers"
+                  DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+                  DTS:ThreadHint="0">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <SQLTask:SqlTaskData
+                      SQLTask:Connection="{FC56DE36-D74A-4360-A006-1D085B95C5CA}"
+                      SQLTask:SqlStatementSource="EXEC spFactMatchPlayers @HomeAway = ?, @YearMonth = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="@HomeAway"
+                        SQLTask:DtsVariableName="User::HomeAway"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                      <SQLTask:ParameterBinding
+                        SQLTask:ParameterName="@YearMonth"
+                        SQLTask:DtsVariableName="User::Period"
+                        SQLTask:ParameterDirection="Input"
+                        SQLTask:DataType="129"
+                        SQLTask:ParameterSize="-1" />
+                    </SQLTask:SqlTaskData>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Tarea Flujo de datos"
+                  DTS:DTSID="{ea68247c-d37a-4ec4-b44f-8c4cd9e684cb}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Match &amp; Players Fact Delete"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source"
+                          componentClassID="Microsoft.OLEDBSource"
+                          contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                          description="Origen de OLE DB"
+                          name="spMacthDelete Source"
+                          usesDispositions="true"
+                          version="7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowset"></property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Comando SQL para ejecutar."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC spFactMatchDelete @HomeAway = ?, @YearMonth = ?</property>
+                            <property
+                              dataType="System.String"
+                              description="Variable que contiene el comando SQL para ejecutar."
+                              name="SqlCommandVariable"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                              name="DefaultCodePage">1252</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                              name="AccessMode"
+                              typeConverter="AccessMode">2</property>
+                            <property
+                              dataType="System.String"
+                              description="Asignaciones entre los parámetros del comando SQL y las variables."
+                              name="ParameterMapping">"@YearMonth:Input",{D562ACAB-3B8A-46FA-90AF-DA830294EE9C};"@HomeAway:Input",{012B8E3B-641B-44B0-B00F-30967940C76C};</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[SoccerCnn]"
+                              connectionManagerRefId="Package.ConnectionManagers[SoccerCnn]"
+                              description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                              name="OleDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de origen de OLE DB]"
+                              name="Salida de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de origen de OLE DB].Columns[RESULT]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de origen de OLE DB].ExternalColumns[RESULT]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de origen de OLE DB].Columns[RESULT]"
+                                  name="RESULT"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de origen de OLE DB].ExternalColumns[RESULT]"
+                                  dataType="i4"
+                                  name="RESULT" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB]"
+                              isErrorOut="true"
+                              name="Salida de error de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[RESULT]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[RESULT]"
+                                  name="RESULT" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Tarea Flujo de datos"
+                  DTS:DTSID="{38efb09d-6773-49d5-866e-ee3d0541918a}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="Match Fact Insert"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion"
+                          componentClassID="Microsoft.DataConvert"
+                          contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+                          description="Conversión de datos"
+                          name="Data Convertion"
+                          usesDispositions="true">
+                          <inputs>
+                            <input
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos]"
+                              name="Entrada de conversión de datos">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos].Columns[season]"
+                                  cachedCodepage="1252"
+                                  cachedDataType="str"
+                                  cachedLength="10"
+                                  cachedName="season"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[season]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos].Columns[Home_Away_Indicator]"
+                                  cachedCodepage="1252"
+                                  cachedDataType="str"
+                                  cachedLength="4"
+                                  cachedName="Home_Away_Indicator"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos].Columns[GlobalResult]"
+                                  cachedCodepage="1252"
+                                  cachedDataType="str"
+                                  cachedLength="4"
+                                  cachedName="GlobalResult"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[GlobalResult]" />
+                              </inputColumns>
+                              <externalMetadataColumns />
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos]"
+                              exclusionGroup="1"
+                              name="Salida de conversión de datos"
+                              synchronousInputId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.season]"
+                                  dataType="wstr"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  length="10"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.season]"
+                                  name="Casting.season"
+                                  truncationRowDisposition="FailComponent">
+                                  <properties>
+                                    <property
+                                      containsID="true"
+                                      dataType="System.Int32"
+                                      description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                                      name="SourceInputColumnLineageID">#{Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[season]}</property>
+                                    <property
+                                      dataType="System.Boolean"
+                                      description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                                      name="FastParse">false</property>
+                                  </properties>
+                                </outputColumn>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.Home_Away_Indicator]"
+                                  name="Casting.Home_Away_Indicator"
+                                  truncationRowDisposition="FailComponent">
+                                  <properties>
+                                    <property
+                                      containsID="true"
+                                      dataType="System.Int32"
+                                      description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                                      name="SourceInputColumnLineageID">#{Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]}</property>
+                                    <property
+                                      dataType="System.Boolean"
+                                      description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                                      name="FastParse">false</property>
+                                  </properties>
+                                </outputColumn>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.GlobalResult]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.GlobalResult]"
+                                  name="Casting.GlobalResult"
+                                  truncationRowDisposition="FailComponent">
+                                  <properties>
+                                    <property
+                                      containsID="true"
+                                      dataType="System.Int32"
+                                      description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                                      name="SourceInputColumnLineageID">#{Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[GlobalResult]}</property>
+                                    <property
+                                      dataType="System.Boolean"
+                                      description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                                      name="FastParse">false</property>
+                                  </properties>
+                                </outputColumn>
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de error de conversión de datos]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Salida de error de conversión de datos"
+                              synchronousInputId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination"
+                          componentClassID="Microsoft.OLEDBDestination"
+                          contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                          description="Destino de OLE DB"
+                          name="FactMatch Destination"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowset">[dbo].[FactMatch]</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Comando SQL para ejecutar."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                              name="DefaultCodePage">1252</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                              name="AccessMode"
+                              typeConverter="AccessMode">3</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadKeepIdentity">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadKeepNulls">false</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadOptions">TABLOCK</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadMaxInsertCommitSize">2147483647</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[SoccerCnn]"
+                              connectionManagerRefId="Package.ConnectionManagers[SoccerCnn]"
+                              description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                              name="OleDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]"
+                              errorOrTruncationOperation="Insertar"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Entrada de destino de OLE DB">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[DateKey]"
+                                  cachedDataType="i4"
+                                  cachedName="DateKey"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[DateKey]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[DateKey]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[country_id]"
+                                  cachedDataType="i4"
+                                  cachedName="country_id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[country_id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[league_id]"
+                                  cachedDataType="i4"
+                                  cachedName="league_id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[League_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[league_id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[stage]"
+                                  cachedDataType="i4"
+                                  cachedName="stage"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Stage]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[stage]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[date]"
+                                  cachedDataType="wstr"
+                                  cachedLength="27"
+                                  cachedName="date"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Date]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[date]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Team_Id]"
+                                  cachedDataType="i4"
+                                  cachedName="Team_Id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Team_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Team_Id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Goals]"
+                                  cachedDataType="i4"
+                                  cachedName="Goals"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Goal]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Goals]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Match_api_id]"
+                                  cachedDataType="i4"
+                                  cachedName="Match_api_id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Match_api_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Casting.season]"
+                                  cachedDataType="wstr"
+                                  cachedLength="10"
+                                  cachedName="Casting.season"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Season]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.season]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Casting.Home_Away_Indicator]"
+                                  cachedDataType="wstr"
+                                  cachedLength="4"
+                                  cachedName="Casting.Home_Away_Indicator"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.Home_Away_Indicator]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Casting.GlobalResult]"
+                                  cachedCodepage="1252"
+                                  cachedDataType="str"
+                                  cachedLength="4"
+                                  cachedName="Casting.GlobalResult"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[GlobalResult]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos].Columns[Casting.GlobalResult]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                                  dataType="i4"
+                                  name="Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[DateKey]"
+                                  dataType="i4"
+                                  name="DateKey" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Id]"
+                                  dataType="i4"
+                                  name="Country_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[League_Id]"
+                                  dataType="i4"
+                                  name="League_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Season]"
+                                  dataType="wstr"
+                                  length="10"
+                                  name="Season" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Stage]"
+                                  dataType="i4"
+                                  name="Stage" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Date]"
+                                  dataType="dbTimeStamp"
+                                  name="Date" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Team_Id]"
+                                  dataType="i4"
+                                  name="Team_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  length="4"
+                                  name="Home_Away_Indicator" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Goal]"
+                                  dataType="i4"
+                                  name="Goal" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Match_api_id]"
+                                  dataType="i4"
+                                  name="Match_api_id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[GlobalResult]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="4"
+                                  name="GlobalResult" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Salida de error de destino de OLE DB"
+                              synchronousInputId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source"
+                          componentClassID="Microsoft.OLEDBSource"
+                          contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                          description="Origen de OLE DB"
+                          name="spMatch Source"
+                          usesDispositions="true"
+                          version="7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowset"></property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Comando SQL para ejecutar."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC spFactMatch @HomeAway = ?, @YearMonth = ?</property>
+                            <property
+                              dataType="System.String"
+                              description="Variable que contiene el comando SQL para ejecutar."
+                              name="SqlCommandVariable"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                              name="DefaultCodePage">1252</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                              name="AccessMode"
+                              typeConverter="AccessMode">2</property>
+                            <property
+                              dataType="System.String"
+                              description="Asignaciones entre los parámetros del comando SQL y las variables."
+                              name="ParameterMapping">"@HomeAway:Input",{012B8E3B-641B-44B0-B00F-30967940C76C};"@YearMonth:Input",{D562ACAB-3B8A-46FA-90AF-DA830294EE9C};</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[SoccerCnn]"
+                              connectionManagerRefId="Package.ConnectionManagers[SoccerCnn]"
+                              description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                              name="OleDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB]"
+                              name="Salida de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[country_id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[country_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[country_id]"
+                                  name="country_id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[league_id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[league_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[league_id]"
+                                  name="league_id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[season]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[season]"
+                                  length="10"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[season]"
+                                  name="season"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[stage]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[stage]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[stage]"
+                                  name="stage"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[date]"
+                                  dataType="wstr"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[date]"
+                                  length="27"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[date]"
+                                  name="date"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Team_Id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Team_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Team_Id]"
+                                  name="Team_Id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  name="Home_Away_Indicator"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Goals]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Goals]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Goals]"
+                                  name="Goals"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[DateKey]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[DateKey]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[DateKey]"
+                                  name="DateKey"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Match_api_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]"
+                                  name="Match_api_id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[GlobalResult]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[GlobalResult]"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].Columns[GlobalResult]"
+                                  name="GlobalResult"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[country_id]"
+                                  dataType="i4"
+                                  name="country_id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[league_id]"
+                                  dataType="i4"
+                                  name="league_id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[season]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="10"
+                                  name="season" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[stage]"
+                                  dataType="i4"
+                                  name="stage" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[date]"
+                                  dataType="wstr"
+                                  length="27"
+                                  name="date" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Team_Id]"
+                                  dataType="i4"
+                                  name="Team_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="4"
+                                  name="Home_Away_Indicator" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Goals]"
+                                  dataType="i4"
+                                  name="Goals" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[DateKey]"
+                                  dataType="i4"
+                                  name="DateKey" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[Match_api_id]"
+                                  dataType="i4"
+                                  name="Match_api_id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB].ExternalColumns[GlobalResult]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="4"
+                                  name="GlobalResult" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB]"
+                              isErrorOut="true"
+                              name="Salida de error de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[country_id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[country_id]"
+                                  name="country_id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[league_id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[league_id]"
+                                  name="league_id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[season]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="10"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[season]"
+                                  name="season" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[stage]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[stage]"
+                                  name="stage" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[date]"
+                                  dataType="wstr"
+                                  length="27"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[date]"
+                                  name="date" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Team_Id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Team_Id]"
+                                  name="Team_Id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  name="Home_Away_Indicator" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Goals]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Goals]"
+                                  name="Goals" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[DateKey]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[DateKey]"
+                                  name="DateKey" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Match_api_id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[Match_api_id]"
+                                  name="Match_api_id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[GlobalResult]"
+                                  codePage="1252"
+                                  dataType="str"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[GlobalResult]"
+                                  name="GlobalResult" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert.Paths[Salida de conversión de datos]"
+                          endId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]"
+                          name="Salida de conversión de datos"
+                          startId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Outputs[Salida de conversión de datos]" />
+                        <path
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert.Paths[Salida de origen de OLE DB]"
+                          endId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion.Inputs[Entrada de conversión de datos]"
+                          name="Salida de origen de OLE DB"
+                          startId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source.Outputs[Salida de origen de OLE DB]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+                <DTS:Executable
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert"
+                  DTS:CreationName="Microsoft.Pipeline"
+                  DTS:Description="Tarea Flujo de datos"
+                  DTS:DTSID="{1c770bde-7560-4c45-8999-c9cbf22d7438}"
+                  DTS:ExecutableType="Microsoft.Pipeline"
+                  DTS:LocaleID="-1"
+                  DTS:ObjectName="MatchPlayers Fact Insert"
+                  DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+                  <DTS:Variables />
+                  <DTS:ObjectData>
+                    <pipeline
+                      version="1">
+                      <components>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination"
+                          componentClassID="Microsoft.OLEDBDestination"
+                          contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                          description="Destino de OLE DB"
+                          name="FactMatch Destination"
+                          usesDispositions="true"
+                          version="4">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowset">[dbo].[FactMatchPlayers]</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Comando SQL para ejecutar."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                              name="DefaultCodePage">1252</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                              name="AccessMode"
+                              typeConverter="AccessMode">3</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadKeepIdentity">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadKeepNulls">false</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadOptions">TABLOCK</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                              name="FastLoadMaxInsertCommitSize">2147483647</property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[SoccerCnn]"
+                              connectionManagerRefId="Package.ConnectionManagers[SoccerCnn]"
+                              description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                              name="OleDbConnection" />
+                          </connections>
+                          <inputs>
+                            <input
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]"
+                              errorOrTruncationOperation="Insertar"
+                              errorRowDisposition="FailComponent"
+                              hasSideEffects="true"
+                              name="Entrada de destino de OLE DB">
+                              <inputColumns>
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Country_Id]"
+                                  cachedDataType="i4"
+                                  cachedName="Country_Id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Country_Id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[League_Id]"
+                                  cachedDataType="i4"
+                                  cachedName="League_Id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[League_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[League_Id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Team_Id]"
+                                  cachedDataType="i4"
+                                  cachedName="Team_Id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Team_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Team_Id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Match_api_id]"
+                                  cachedDataType="i4"
+                                  cachedName="Match_api_id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Match_api_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Home_Away_Indicator]"
+                                  cachedDataType="wstr"
+                                  cachedLength="4"
+                                  cachedName="Home_Away_Indicator"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]" />
+                                <inputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].Columns[Player_Id]"
+                                  cachedDataType="i4"
+                                  cachedName="Player_Id"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Player_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Player_Id]" />
+                              </inputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Id]"
+                                  dataType="i4"
+                                  name="Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Country_Id]"
+                                  dataType="i4"
+                                  name="Country_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[League_Id]"
+                                  dataType="i4"
+                                  name="League_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Team_Id]"
+                                  dataType="i4"
+                                  name="Team_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  length="4"
+                                  name="Home_Away_Indicator" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Match_api_id]"
+                                  dataType="i4"
+                                  name="Match_api_id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB].ExternalColumns[Player_Id]"
+                                  dataType="i4"
+                                  name="Player_Id" />
+                              </externalMetadataColumns>
+                            </input>
+                          </inputs>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB]"
+                              exclusionGroup="1"
+                              isErrorOut="true"
+                              name="Salida de error de destino de OLE DB"
+                              synchronousInputId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                        <component
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB"
+                          componentClassID="Microsoft.OLEDBSource"
+                          contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+                          description="Origen de OLE DB"
+                          name="Origen de OLE DB"
+                          usesDispositions="true"
+                          version="7">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                              name="CommandTimeout">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowset">[dbo].[TEMP_MATCH_PLAYERS]</property>
+                            <property
+                              dataType="System.String"
+                              description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                              name="OpenRowsetVariable"></property>
+                            <property
+                              dataType="System.String"
+                              description="Comando SQL para ejecutar."
+                              name="SqlCommand"
+                              UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                            <property
+                              dataType="System.String"
+                              description="Variable que contiene el comando SQL para ejecutar."
+                              name="SqlCommandVariable"></property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                              name="DefaultCodePage">1252</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                              name="AlwaysUseDefaultCodePage">false</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                              name="AccessMode"
+                              typeConverter="AccessMode">0</property>
+                            <property
+                              dataType="System.String"
+                              description="Asignaciones entre los parámetros del comando SQL y las variables."
+                              name="ParameterMapping"></property>
+                          </properties>
+                          <connections>
+                            <connection
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Connections[OleDbConnection]"
+                              connectionManagerID="Package.ConnectionManagers[SoccerCnn]"
+                              connectionManagerRefId="Package.ConnectionManagers[SoccerCnn]"
+                              description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                              name="OleDbConnection" />
+                          </connections>
+                          <outputs>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB]"
+                              name="Salida de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Country_Id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Country_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Country_Id]"
+                                  name="Country_Id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[League_Id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[League_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[League_Id]"
+                                  name="League_Id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Team_Id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Team_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Team_Id]"
+                                  name="Team_Id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Player_Id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Player_Id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Player_Id]"
+                                  name="Player_Id"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  name="Home_Away_Indicator"
+                                  truncationRowDisposition="FailComponent" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]"
+                                  dataType="i4"
+                                  errorOrTruncationOperation="Conversión"
+                                  errorRowDisposition="FailComponent"
+                                  externalMetadataColumnId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Match_api_id]"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].Columns[Match_api_id]"
+                                  name="Match_api_id"
+                                  truncationRowDisposition="FailComponent" />
+                              </outputColumns>
+                              <externalMetadataColumns
+                                isUsed="True">
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Country_Id]"
+                                  dataType="i4"
+                                  name="Country_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[League_Id]"
+                                  dataType="i4"
+                                  name="League_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Team_Id]"
+                                  dataType="i4"
+                                  name="Team_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Player_Id]"
+                                  dataType="i4"
+                                  name="Player_Id" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  length="4"
+                                  name="Home_Away_Indicator" />
+                                <externalMetadataColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB].ExternalColumns[Match_api_id]"
+                                  dataType="i4"
+                                  name="Match_api_id" />
+                              </externalMetadataColumns>
+                            </output>
+                            <output
+                              refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB]"
+                              isErrorOut="true"
+                              name="Salida de error de origen de OLE DB">
+                              <outputColumns>
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Country_Id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Country_Id]"
+                                  name="Country_Id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[League_Id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[League_Id]"
+                                  name="League_Id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Team_Id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Team_Id]"
+                                  name="Team_Id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Player_Id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Player_Id]"
+                                  name="Player_Id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  dataType="wstr"
+                                  length="4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Home_Away_Indicator]"
+                                  name="Home_Away_Indicator" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Match_api_id]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[Match_api_id]"
+                                  name="Match_api_id" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                                  name="ErrorCode"
+                                  specialFlags="1" />
+                                <outputColumn
+                                  refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  dataType="i4"
+                                  lineageId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                                  name="ErrorColumn"
+                                  specialFlags="2" />
+                              </outputColumns>
+                              <externalMetadataColumns />
+                            </output>
+                          </outputs>
+                        </component>
+                      </components>
+                      <paths>
+                        <path
+                          refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert.Paths[Salida de origen de OLE DB]"
+                          endId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination.Inputs[Entrada de destino de OLE DB]"
+                          name="Salida de origen de OLE DB"
+                          startId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB.Outputs[Salida de origen de OLE DB]" />
+                      </paths>
+                    </pipeline>
+                  </DTS:ObjectData>
+                </DTS:Executable>
+              </DTS:Executables>
+              <DTS:PrecedenceConstraints>
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{D2390DE7-3497-459E-9D25-B1C69E5B0649}"
+                  DTS:From="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Restricción"
+                  DTS:To="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción 1]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{EB77E48B-7079-4C94-8458-673A7D14E6B1}"
+                  DTS:From="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Restricción 1"
+                  DTS:To="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers" />
+                <DTS:PrecedenceConstraint
+                  DTS:refId="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción 2]"
+                  DTS:CreationName=""
+                  DTS:DTSID="{EB313F73-529E-415A-A810-BE815164AA6F}"
+                  DTS:From="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers"
+                  DTS:LogicalAnd="True"
+                  DTS:ObjectName="Restricción 2"
+                  DTS:To="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert" />
+              </DTS:PrecedenceConstraints>
+              <DTS:ForEachVariableMappings>
+                <DTS:ForEachVariableMapping
+                  DTS:CreationName=""
+                  DTS:DTSID="{9EECBC96-C0E8-4542-8590-BB5AA89667F7}"
+                  DTS:ObjectName="{9EECBC96-C0E8-4542-8590-BB5AA89667F7}"
+                  DTS:ValueIndex="0"
+                  DTS:VariableName="User::HomeAway" />
+              </DTS:ForEachVariableMappings>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{C6D919F9-07B1-4549-99CD-7F45EDE98AB6}"
+      DTS:From="Package\Initial Period"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Loop - Years" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Initial Period"
+          TopLeft="40.1111111111111,450.555555555556" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete"
+          TopLeft="27.642857142857,21" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert"
+          TopLeft="32.6428571428571,112.714285714286" />
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción]"
+          TopLeft="136.642857142857,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.9999999999999,49.7142857142858"
+              Start="0,0"
+              End="-21.9999999999999,42.2142857142858">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8571428571429"
+                    Point2="0,24.8571428571429"
+                    Point3="-4,24.8571428571429" />
+                  <mssgle:LineSegment
+                    End="-17.9999999999999,24.8571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.9999999999999,24.8571428571429"
+                    Point2="-21.9999999999999,24.8571428571429"
+                    Point3="-21.9999999999999,28.8571428571429" />
+                  <mssgle:LineSegment
+                    End="-21.9999999999999,42.2142857142858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers"
+          TopLeft="255,161" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert"
+          TopLeft="102,253" />
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción 1]"
+          TopLeft="196.642857142857,133.714285714286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.3571428571429,48.285714285714"
+              Start="0,0"
+              End="50.8571428571429,48.285714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.1785714285714,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.1785714285714,0"
+                    Point2="29.1785714285714,0"
+                    Point3="29.1785714285714,4" />
+                  <mssgle:LineSegment
+                    End="29.1785714285714,44.285714285714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.1785714285714,44.285714285714"
+                    Point2="29.1785714285714,48.285714285714"
+                    Point3="33.1785714285714,48.285714285714" />
+                  <mssgle:LineSegment
+                    End="50.8571428571429,48.285714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción 2]"
+          TopLeft="334,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-132,50"
+              Start="0,0"
+              End="-132,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-128,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-128,25"
+                    Point2="-132,25"
+                    Point3="-132,29" />
+                  <mssgle:LineSegment
+                    End="-132,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="482,350"
+          Size="482,393"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor"
+          TopLeft="27.7142857142857,5.14285714285722" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="515,453"
+          Size="515,496"
+          Id="Package\Loop - Years\Loop - Months"
+          TopLeft="5.50000000000006,5.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="526,556"
+          Size="526,600"
+          Id="Package\Loop - Years"
+          TopLeft="220,206.666666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="180.111111111111,471.555555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.8888888888889,35.111111111111"
+              Start="0,0"
+              End="32.3888888888889,35.111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.9444444444445,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.9444444444445,0"
+                    Point2="19.9444444444445,0"
+                    Point3="19.9444444444445,4" />
+                  <mssgle:LineSegment
+                    End="19.9444444444445,31.111111111111" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.9444444444445,31.111111111111"
+                    Point2="19.9444444444445,35.111111111111"
+                    Point3="23.9444444444445,35.111111111111" />
+                  <mssgle:LineSegment
+                    End="32.3888888888889,35.111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source"
+          TopLeft="69,52" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete\spMacthDelete Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination"
+          TopLeft="503,204" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source"
+          TopLeft="83,64" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\Data Convertion"
+          TopLeft="326,119" />
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert.Paths[Salida de origen de OLE DB]"
+          TopLeft="241,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85,55"
+              Start="0,0"
+              End="77.5,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5,0"
+                    Point2="42.5,0"
+                    Point3="42.5,4" />
+                  <mssgle:LineSegment
+                    End="42.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.5,51"
+                    Point2="42.5,55"
+                    Point3="46.5,55" />
+                  <mssgle:LineSegment
+                    End="77.5,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert.Paths[Salida de conversión de datos]"
+          TopLeft="405,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="192,43"
+              Start="0,0"
+              End="192,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="188,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="188,21.5"
+                    Point2="192,21.5"
+                    Point3="192,25.5" />
+                  <mssgle:LineSegment
+                    End="192,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\spMatch Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination"
+          TopLeft="410,174" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB"
+          TopLeft="55,80" />
+        <EdgeLayout
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert.Paths[Salida de origen de OLE DB]"
+          TopLeft="140,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="364,52"
+              Start="0,0"
+              End="364,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="360,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="360,26"
+                    Point2="364,26"
+                    Point3="364,30" />
+                  <mssgle:LineSegment
+                    End="364,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

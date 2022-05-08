@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{DB312443-8808-47FF-8508-E9413AC719A8}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{544E685D-386B-4C55-BB01-14D18FDAC83D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAc8Be7rWCB0SwwlrHdghP2gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABi7113+BT4oV0laYdWihVUpnFzXfItxiTu16aYiwIJpwAAAAAOgAAAAAIAACAAAADiPGhWULIG59MwOav2+hvnxIYyN5VVii2ugMr+TXygKCAAAACkQ6rzsJia3ROoKJUcnj8vAK501K2Gy85VJFM6bS8dXkAAAACVdvzWRZverZS6dTZmwR16AUrSxrZrouuBlYTVLgE67RXFgPcUp9WhsxefaJQcFImFC3/Hvhfqu1Hm8G7qFuo1</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAc8Be7rWCB0SwwlrHdghP2gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABOrj2BaEx5TW2Qxz7JD/QEjuXH+KpukmFFx7yV2NwmKAAAAAAOgAAAAAIAACAAAAC9/GILgBe63G3Fhh9xv45Wu0GnDf0bzwqod+dFArtjQiAAAAAwghrVnockLG/7x2SLl6cp1aI90PUtv2OKKs8EQ6uWYUAAAABz86OitGGcJzh3jdVekhYWwo0T/wQvva3+kGITByYIYkFaUZZwCzOcyzJ1aaQDZ8EXMT1szChHEKENvXWRXwtA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2850,33 +2850,45 @@ where [refTable].[Team_Id] = ?</property>
         <NodeLayout
           Size="173,42"
           Id="Package\Country Dimension"
-          TopLeft="78,60" />
+          TopLeft="27,37" />
         <NodeLayout
           Size="171,42"
           Id="Package\League Dimension"
-          TopLeft="350,59" />
+          TopLeft="140,124" />
         <NodeLayout
           Size="165,42"
           Id="Package\Player Dimension"
-          TopLeft="82,173" />
+          TopLeft="524,265" />
         <NodeLayout
           Size="162,42"
           Id="Package\Team Dimension"
-          TopLeft="358,176" />
+          TopLeft="359,187" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="251,80.5">
+          TopLeft="113.5,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="99,0"
+              EndConnector="112,45"
               Start="0,0"
-              End="91.5,0">
+              End="112,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="91.5,0" />
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="108,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108,22.5"
+                    Point2="112,22.5"
+                    Point3="112,26.5" />
+                  <mssgle:LineSegment
+                    End="112,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2887,18 +2899,30 @@ where [refTable].[Team_Id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="437.25,101">
+          TopLeft="311,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,75"
+              EndConnector="48,63"
               Start="0,0"
-              End="0,67.5">
+              End="40.5,63">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67.5" />
+                    End="20,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,0"
+                    Point2="24,0"
+                    Point3="24,4" />
+                  <mssgle:LineSegment
+                    End="24,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24,59"
+                    Point2="24,63"
+                    Point3="28,63" />
+                  <mssgle:LineSegment
+                    End="40.5,63" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2909,18 +2933,30 @@ where [refTable].[Team_Id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="358,195.5">
+          TopLeft="440,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111,0"
+              EndConnector="166.5,36"
               Start="0,0"
-              End="-103.5,0">
+              End="166.5,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-103.5,0" />
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="162.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162.5,18"
+                    Point2="166.5,18"
+                    Point3="166.5,22" />
+                  <mssgle:LineSegment
+                    End="166.5,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

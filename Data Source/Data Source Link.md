@@ -14,3 +14,8 @@ googleplaystore.csv
 
 https://www.kaggle.com/datasets/hugomathien/soccer?select=database.sqlite
 database.sqlite
+
+
+Run an SSIS package from the command prompt with DTExec.exe
+dtexec /ISServer "\SSISDB\EuropeanLeagues\EuropeanSoccer\Main.dtsx" /Server "BIABLEDEVELOPER"
+

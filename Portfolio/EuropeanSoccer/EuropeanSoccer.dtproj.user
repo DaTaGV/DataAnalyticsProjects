@@ -8,6 +8,9 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>BIABLEDEVELOPER</ServerName>
+        <PathOnServer>/SSISDB/EuropeanLeagues/EuropeanSoccer</PathOnServer>
+        <StartObjectID>Main.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
