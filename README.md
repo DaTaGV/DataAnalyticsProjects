@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -53,9 +52,10 @@
   </p>
 </div>
 
-
+-->
 
 <!-- TABLE OF CONTENTS -->
+<!--
 <details>
   <summary>Table of Contents</summary>
   <ol>
