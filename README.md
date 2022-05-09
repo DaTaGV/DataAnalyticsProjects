@@ -86,7 +86,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
 # Data Analytics Projects 		
 ## -- Project is in progress --
@@ -95,8 +95,6 @@ For this project, I will create a Data Warehouse using Microsoft SSIS and also S
 
 
 
-#UNDER CONSTRUCTION
-
 
 <br>
 <br>
@@ -122,7 +120,57 @@ For this project, I will create a Data Warehouse using Microsoft SSIS and also S
 <br>
 <br>
 <br>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
