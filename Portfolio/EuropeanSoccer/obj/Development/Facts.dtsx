@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Facts"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{B4240701-C572-4307-96B3-32F0AEC6DCB2}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{AB5F7182-91AB-48E3-8BAD-C1EE5510CD01}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -29,7 +29,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAc8Be7rWCB0SwwlrHdghP2gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACPHXatNh+xKWc+/hhNWcqSuYiu8+Grbu2P6SOS/V5COQAAAAAOgAAAAAIAACAAAAB/5PJNWG9pYmtm2UYBCqKps1XbBcTgpKnbghWZi72O0yAAAAAJnD8zymjofNMadl7PKVG44iv2qIW8k6EZ2beSTR+WD0AAAAARGcfCnxc9yd+nhBdXUxuCTd+VOMML/JC/RJ7JoYosGx6x11czrR7Sa4DIV6cZnHo2xRl/2DywwTqypNypcbDr</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAc8Be7rWCB0SwwlrHdghP2gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAQDjoycoD6ZopssqpSd0VQmxQzqXr75LC6VRySklRMwwAAAAAOgAAAAAIAACAAAAD5VtM9GPX4HiF24XsgADS7D1daYR0zjrLgnyd07Mgy+SAAAAAeSqs0QcTr8I234py1Rl76hbG4yaAsCJ+Ptp1f4PH4p0AAAAAJdWdleaE0+uykYAcQbN3mqeu6Ga5+ONm6b90XbcXaW1QhahuYOoSjG/MaFPr8zVv4z2Z7lSE0WrGFrJbvb6Gz</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -281,7 +281,7 @@
                             <property
                               dataType="System.String"
                               description="Asignaciones entre los parámetros del comando SQL y las variables."
-                              name="ParameterMapping">"@YearMonth:Input",{D562ACAB-3B8A-46FA-90AF-DA830294EE9C};"@HomeAway:Input",{012B8E3B-641B-44B0-B00F-30967940C76C};</property>
+                              name="ParameterMapping">"@HomeAway:Input",{012B8E3B-641B-44B0-B00F-30967940C76C};"@YearMonth:Input",{D562ACAB-3B8A-46FA-90AF-DA830294EE9C};</property>
                           </properties>
                           <connections>
                             <connection
@@ -1466,8 +1466,8 @@
               <DTS:ForEachVariableMappings>
                 <DTS:ForEachVariableMapping
                   DTS:CreationName=""
-                  DTS:DTSID="{9EECBC96-C0E8-4542-8590-BB5AA89667F7}"
-                  DTS:ObjectName="{9EECBC96-C0E8-4542-8590-BB5AA89667F7}"
+                  DTS:DTSID="{2B2328F7-EAA5-4CF7-9AC1-818ED1C90176}"
+                  DTS:ObjectName="{2B2328F7-EAA5-4CF7-9AC1-818ED1C90176}"
                   DTS:ValueIndex="0"
                   DTS:VariableName="User::HomeAway" />
               </DTS:ForEachVariableMappings>
@@ -1504,6 +1504,10 @@
           Id="Package\Initial Period"
           TopLeft="40.1111111111111,450.555555555556" />
         <NodeLayout
+          Size="158,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers"
+          TopLeft="255,161" />
+        <NodeLayout
           Size="218,42"
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match &amp; Players Fact Delete"
           TopLeft="27.642857142857,21" />
@@ -1511,6 +1515,10 @@
           Size="164,42"
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert"
           TopLeft="32.6428571428571,112.714285714286" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert"
+          TopLeft="102,253" />
         <EdgeLayout
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción]"
           TopLeft="136.642857142857,63">
@@ -1545,14 +1553,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Insert spPlayers"
-          TopLeft="255,161" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert"
-          TopLeft="102,253" />
         <EdgeLayout
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor.PrecedenceConstraints[Restricción 1]"
           TopLeft="196.642857142857,133.714285714286">
@@ -1638,7 +1638,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="526,556"
+          PanelSize="526,557"
           Size="526,600"
           Id="Package\Loop - Years"
           TopLeft="220,206.666666666667" />
@@ -1703,7 +1703,7 @@
     design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="188,42"
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\Match Fact Insert\FactMatch Destination"
@@ -1747,7 +1747,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1781,7 +1783,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1812,15 +1816,15 @@
     design-time-name="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="188,42"
-          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination"
-          TopLeft="410,174" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\Origen de OLE DB"
           TopLeft="55,80" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert\FactMatch Destination"
+          TopLeft="410,174" />
         <EdgeLayout
           Id="Package\Loop - Years\Loop - Months\Loop - Home Away Indictor\MatchPlayers Fact Insert.Paths[Salida de origen de OLE DB]"
           TopLeft="140,122">
@@ -1852,7 +1856,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
