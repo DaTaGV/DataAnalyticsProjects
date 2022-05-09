@@ -18,16 +18,19 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
+<!--
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+-->
 
 
 <!-- PROJECT LOGO -->
+<!--
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
@@ -78,7 +81,7 @@
   </ol>
 </details>
 
-
+-->
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -87,12 +90,7 @@
 
 # Data Analytics Projects 		
 ## -- Project is in progress --
-
-=======
-# Data Analytics Projects 		
-## -- Project is in progress --
  
->>>>>>> e1000d348ea5e26446c5ef469dd3590012b82cdd
 For this project, I will create a Data Warehouse using Microsoft SSIS and also SQL Stored Procedures & SQL Custom Functions, all of them are going to do the same task in order to create the Data Warehouse. It will show you that you can use different tools to get the same goal "a Data Warehouse". Later, I'm going to use BI Tools like Power BI and Tableau or even Excel - Power Query to get the Data from the Data Warehouse to create Dashboards/Tables/PivotTables and so on.
 
 
@@ -100,30 +98,30 @@ For this project, I will create a Data Warehouse using Microsoft SSIS and also S
 #UNDER CONSTRUCTION
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 Here's why:
