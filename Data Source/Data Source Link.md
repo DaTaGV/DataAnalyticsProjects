@@ -18,4 +18,3 @@ database.sqlite
 
 Run an SSIS package from the command prompt with DTExec.exe
 dtexec /ISServer "\SSISDB\EuropeanLeagues\EuropeanSoccer\Main.dtsx" /Server "BIABLEDEVELOPER"
-
